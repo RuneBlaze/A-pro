@@ -312,15 +312,15 @@ public abstract class AbstractInference<T> implements Cloneable{
 		dataCollection = newCounter(newClusterCollection());
 		weightCalculator = newWeightCalculator();
 
+		boolean custommode = extraTrees != null && extraTrees.size() > 0;
+
 		/**
 		 * Fors the set X by adding from gene trees and
 		 * by adding using ASTRAL-II hueristics
 		 */
-		// dataCollection.formSetX(this);
-		System.err.println("There is no longer any original collection added.");
+		if (!custommode) dataCollection.formSetX(this);
+		else System.err.println("There is no longer any original collection added.");
 		
-		
-
 		
 		if (options.isExactSolution()) {
 	          System.err.println("calculating all possible bipartitions ... nor does this have any effect");
@@ -328,7 +328,7 @@ public abstract class AbstractInference<T> implements Cloneable{
 		}
 
 	    
-		if (true) {		
+		if (custommode) {		
 	        System.err.println("calculating extra bipartitions from extra input trees ...");
 			dataCollection.addExtraBipartitionsByInput(extraTrees,options.isExtrarooted());
 			int s = this.dataCollection.clusters.getClusterCount();
