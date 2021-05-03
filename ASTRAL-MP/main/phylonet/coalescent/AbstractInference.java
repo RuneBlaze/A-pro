@@ -316,18 +316,19 @@ public abstract class AbstractInference<T> implements Cloneable{
 		 * Fors the set X by adding from gene trees and
 		 * by adding using ASTRAL-II hueristics
 		 */
-		dataCollection.formSetX(this);
+		// dataCollection.formSetX(this);
+		System.err.println("There is no longer any original collection added.");
 		
 		
 
 		
 		if (options.isExactSolution()) {
-	          System.err.println("calculating all possible bipartitions ...");
+	          System.err.println("calculating all possible bipartitions ... nor does this have any effect");
 		    dataCollection.addAllPossibleSubClusters(this.dataCollection.clusters.getTopVertex().getCluster());
 		}
 
-	      
-		if (extraTrees != null && extraTrees.size() > 0) {		
+	    
+		if (true) {		
 	        System.err.println("calculating extra bipartitions from extra input trees ...");
 			dataCollection.addExtraBipartitionsByInput(extraTrees,options.isExtrarooted());
 			int s = this.dataCollection.clusters.getClusterCount();
@@ -379,7 +380,8 @@ public abstract class AbstractInference<T> implements Cloneable{
 	public List<Solution> inferSpeciesTree() {
 		
 		List<Solution> solutions;		
-		
+
+		
 		solutions = findTreesByDP(this.dataCollection.clusters);
 
 /*		if (GlobalMaps.taxonNameMap == null && rooted && extraTrees == null && false) {
