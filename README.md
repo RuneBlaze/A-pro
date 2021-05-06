@@ -1,4 +1,12 @@
-# A-pro
+# A-pro 表 ～ うかぶ
+
+Personal fork of A-Pro for research purposes.
+
+```bash
+java -jar -D"java.library.path=ASTRAL-MP/lib" ASTRAL-MP/astral.1.1.5.jar -i broken.trees -e s_tree.trees.rp -o test.tr
+```
+
+
 ASTRAL-Pro stands for ASTRAL for PaRalogs and Orthologs. ASTRAL is a tool for estimating an unrooted species tree given a set of unrooted gene trees and is statistically consistent under the multi-species coalescent model (and thus is useful for handling incomplete lineage sorting, i.e., ILS). ASTRAL-pro extends ASTRAL to allow multi-copy genes. ASTRAL-pro finds the species tree that has the maximum number of shared induced quartet tree equivalent classes with the set of gene trees, subject to the constraint that the set of bipartitions in the species tree comes from a predefined set of bipartitions. Please see the paper below for the definition of the PL-quartet scores, which is what ASTRAL-Pro optimizes. We refer to the tool both as A-Pro and ASTRAL-Pro. 
 
 ### Publication:
