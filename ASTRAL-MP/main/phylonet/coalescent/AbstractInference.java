@@ -310,6 +310,7 @@ public abstract class AbstractInference<T> implements Cloneable{
 		mapNames();
 
 		dataCollection = newCounter(newClusterCollection());
+		System.out.println("hello: " + GlobalMaps.taxonIdentifier.taxonCount());
 		weightCalculator = newWeightCalculator();
 
 		boolean custommode = extraTrees != null && extraTrees.size() > 0;
@@ -319,7 +320,14 @@ public abstract class AbstractInference<T> implements Cloneable{
 		 * by adding using ASTRAL-II hueristics
 		 */
 		if (!custommode) dataCollection.formSetX(this);
-		else System.err.println("There is no longer any original collection added.");
+		else {
+			System.err.println("There is no longer any original collection added.");
+			if (dataCollection instanceof WQDataCollection) {
+				// System.err.println("Calculating distances...");
+				dataCollection.formSetX(this);
+				// ((WQDataCollection) dataCollection).calculateDistances();
+			}
+		}
 		
 		
 		if (options.isExactSolution()) {
@@ -330,8 +338,17 @@ public abstract class AbstractInference<T> implements Cloneable{
 	    
 		if (custommode) {		
 	        System.err.println("calculating extra bipartitions from extra input trees ...");
-			dataCollection.addExtraBipartitionsByInput(extraTrees,options.isExtrarooted());
+			System.err.println("size: " + extraTrees.size());
+			System.err.println("Number of Clusters before additions from extra trees: "
+					+ this.dataCollection.clusters.getClusterCount());
+			for (Tree tree : extraTrees) {
+				System.err.println("Adding one extra tree.");
+				((WQDataCollection) this.dataCollection).addTree(tree);
+			}
+			// dataCollection.addExtraBipartitionsByInput(extraTrees,false);
+			// dataCollection.addAllPossibleSubClusters(this.dataCollection.clusters.getTopVertex().getCluster());
 			int s = this.dataCollection.clusters.getClusterCount();
+			// System.out.println(this.dataCollection.clusters.getTopVertex());
 			/*
 			 * for (Integer c: clusters2.keySet()){ s += clusters2.get(c).size(); }
 			 */
@@ -352,13 +369,16 @@ public abstract class AbstractInference<T> implements Cloneable{
 		}
 		
 		
-		if (this.options.isOutputSearchSpace()) {
-			for (Set<Vertex> s: dataCollection.clusters.getSubClusters()) {
-				for (Vertex v : s) {
-					System.out.println(v.getCluster());
-				}
-			}
-		}
+		// if (true) {
+		// 	for (Set<Vertex> s: dataCollection.clusters.getSubClusters()) {
+		// 		for (Vertex v : s) {
+		// 			if (v.getCluster().getClusterSize() >= 95) {
+		// 				System.out.print("" + v.getCluster().getClusterSize() + ", ");
+		// 			}
+					
+		// 		}
+		// 	}
+		// }
 		
 		Logging.logTimeMessage("" );
 		

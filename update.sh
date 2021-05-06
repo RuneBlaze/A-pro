@@ -1,0 +1,1 @@
+cd ASTRAL-MP && sh make.sh

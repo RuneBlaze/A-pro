@@ -364,8 +364,8 @@ public class CommandLine {
 						false, null, 1, null);
 				System.err.println(extraTrees.size() + " extra trees read from " + config.getFile("extra trees"));
 			}
-			if (config.getFile("score species trees") == null) readInputTrees(extraTrees, readTreeFileAsString(breakedTrees[1]), extrarooted,
-					true, true, null, 1, null);
+			// if (config.getFile("score species trees") == null) readInputTrees(extraTrees, readTreeFileAsString(breakedTrees[1]), extrarooted,
+			// 		true, true, null, 1, null);
 			System.err.println(extraTrees.size() + " extra trees.");
 		} catch (IOException e) {
 			System.err.println("Error when reading extra trees.");
