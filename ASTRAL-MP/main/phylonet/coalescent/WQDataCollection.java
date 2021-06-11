@@ -620,18 +620,25 @@ implements Cloneable {
 		int haveMissing = preProcess(inference);
 		SpeciesMapper spm = GlobalMaps.taxonNameMap.getSpeciesIdMapper();
 
-		calculateDistances();
+		// calculateDistances();
 		// haveMissing = 0;
-		if (haveMissing > 0) {
-			completeGeneTrees();
-		} else {
-			this.completedGeeneTrees = new ArrayList<Tree>(
-					this.originalInompleteGeneTrees.size());
+		// if (haveMissing > 0) {
+		// 	completeGeneTrees();
+		// } else {
+		// 	this.completedGeeneTrees = new ArrayList<Tree>(
+		// 			this.originalInompleteGeneTrees.size());
 
-			for (Tree t : this.originalInompleteGeneTrees) {
-				this.completedGeeneTrees.add(new STITree(t));
-			}
-		}
+		// 	for (Tree t : this.originalInompleteGeneTrees) {
+		// 		this.completedGeeneTrees.add(new STITree(t));
+		// 	}
+		// }
+
+		// this.completedGeeneTrees = new ArrayList<Tree>(
+		// 			this.originalInompleteGeneTrees.size());
+
+		// 	for (Tree t : this.originalInompleteGeneTrees) {
+		// 		this.completedGeeneTrees.add(new STITree(t));
+		// 	}
 
 		STITreeCluster all = GlobalMaps.taxonIdentifier.newCluster();
 		all.getBitSet().set(0, GlobalMaps.taxonIdentifier.taxonCount());

@@ -746,13 +746,16 @@ public class CommandLine {
 						GlobalMaps.taxonNameMap.getSpeciesIdMapper().stToGt(tr);
 					}
 					String[] leaves = tr.getLeaves().clone();
+					for (String i : leaves) {
+						System.out.println(i);
+					}
 					if (annotation != 6) {
 						for (int i = 0; i < leaves.length; i++) {
-							// if (!stLablel) {
+							if (!stLablel) {
 							GlobalMaps.taxonIdentifier.taxonId(leaves[i]);
-							// } else {
-							// GlobalMaps.taxonNameMap.getSpeciesIdMapper().speciesId(leaves[i]);
-							// }
+							} else {
+							GlobalMaps.taxonNameMap.getSpeciesIdMapper().speciesId(leaves[i]);
+							}
 						}
 					} else {
 						allleaves.addAll(Arrays.asList(leaves));
