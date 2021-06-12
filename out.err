@@ -1,0 +1,11 @@
+
+================== ASTRAL-Pro ===================== 
+
+This is ASTRAL-Pro (A-Pro) version 1.1.5
+Using native AVX batch computing.
+Gene trees are treated as unrooted
+There are 2 threads used to run.
+ti: 3
+tx: 3
+pw: 4
+The number of input tree read is 1000

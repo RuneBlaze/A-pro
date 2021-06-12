@@ -310,7 +310,7 @@ public abstract class AbstractInference<T> implements Cloneable{
 		mapNames();
 
 		dataCollection = newCounter(newClusterCollection());
-		System.out.println("hello: " + GlobalMaps.taxonIdentifier.taxonCount());
+		System.out.println("Taxons: " + GlobalMaps.taxonIdentifier.taxonCount());
 		weightCalculator = newWeightCalculator();
 
 		boolean custommode = extraTrees != null && extraTrees.size() > 0;
@@ -342,7 +342,7 @@ public abstract class AbstractInference<T> implements Cloneable{
 			System.err.println("Number of Clusters before additions from extra trees: "
 					+ this.dataCollection.clusters.getClusterCount());
 			for (Tree tree : extraTrees) {
-				System.err.println("Adding one extra tree.");
+				// System.err.println("Adding one extra tree.");
 				((WQDataCollection) this.dataCollection).addTree(tree);
 			}
 			// dataCollection.addExtraBipartitionsByInput(extraTrees,false);

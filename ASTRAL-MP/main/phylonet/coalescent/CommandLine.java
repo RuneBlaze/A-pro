@@ -745,10 +745,10 @@ public class CommandLine {
 					if (stLablel) {
 						GlobalMaps.taxonNameMap.getSpeciesIdMapper().stToGt(tr);
 					}
-					String[] leaves = tr.getLeaves().clone();
-					for (String i : leaves) {
-						System.out.println(i);
-					}
+					// String[] leaves = tr.getLeaves().clone();
+					// for (String i : leaves) {
+					// 	System.out.println(i);
+					// }
 					if (annotation != 6) {
 						for (int i = 0; i < leaves.length; i++) {
 							if (!stLablel) {
