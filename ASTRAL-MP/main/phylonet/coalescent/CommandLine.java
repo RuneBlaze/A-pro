@@ -745,7 +745,7 @@ public class CommandLine {
 					if (stLablel) {
 						GlobalMaps.taxonNameMap.getSpeciesIdMapper().stToGt(tr);
 					}
-					// String[] leaves = tr.getLeaves().clone();
+					String[] leaves = tr.getLeaves().clone();
 					// for (String i : leaves) {
 					// 	System.out.println(i);
 					// }
